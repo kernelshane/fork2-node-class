@@ -12,6 +12,8 @@ module.exports = function Class(obj, parent) {
         }
     }
 
+    constructor.__super__ = parent;
+
     return constructor;
 };
 
