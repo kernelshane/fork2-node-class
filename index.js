@@ -2,12 +2,8 @@ module.exports = function(obj, parent) {
     var func = obj.initialize || function() {};
     parent = parent || Object;
 
-    function ctor() {
-        this.constructor = func;
-    };
-
-    ctor.prototype = parent.prototype;
-    func.prototype = new ctor();
+    func.prototype = new parent();
+    func.prototype.constructor = func;
 
     func.__super__ = parent;
 
